@@ -6,6 +6,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using Xamarin.Essentials;
 
 namespace PDFPrinter
 {
@@ -50,6 +51,15 @@ namespace PDFPrinter
                 intent.PutExtra("path", localPDFFile.AbsolutePath);
 
                 StartActivity(intent);
+            };
+
+            buttonPrintPDF.Click += async (sender, e) =>
+            {
+                await Share.RequestAsync(new ShareFileRequest
+                {
+                   Title = "PDF File",
+                   File = new ShareFile(localPDFFile.AbsolutePath, "application/pdf")
+                });
             };
 
         }
