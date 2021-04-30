@@ -16,14 +16,19 @@ namespace PDFPrinter
             webClient = new WebClient();
         }
 
-        public async Task<string> Download(string targetFileUrl)
+        public async Task<Uri> Download(string targetFileUrl)
         {
             var targetFileName = Path.GetFileName(targetFileUrl);
             var localFilePath = Path.Combine(DestinationPath, targetFileName);
 
             await webClient.DownloadFileTaskAsync(targetFileUrl, localFilePath);
 
-            return localFilePath;
+            if(!File.Exists(localFilePath))
+            {
+                return new Uri("");
+            }
+            
+            return new Uri(localFilePath);
         }
     }
 }
