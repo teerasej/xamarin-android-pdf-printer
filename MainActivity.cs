@@ -28,7 +28,7 @@ namespace PDFPrinter
             buttonPrintPDF = FindViewById<Button>(Resource.Id.buttonPrintPDF);
 
             buttonViewPDF.Enabled = false;
-            buttonViewPDF.Enabled = false;
+            buttonPrintPDF.Enabled = false;
 
             buttonDownloadPDF.Click += async (sender, e) =>
             {
