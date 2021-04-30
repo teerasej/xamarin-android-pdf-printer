@@ -1,4 +1,4 @@
-﻿using Android.App;
+using Android.App;
 using Android.OS;
 using Android.Runtime;
 using Android.Widget;
@@ -23,6 +23,8 @@ namespace PDFPrinter
             buttonViewPDF = FindViewById<Button>(Resource.Id.buttonViewPDF);
             buttonPrintPDF = FindViewById<Button>(Resource.Id.buttonPrintPDF);
 
+            buttonViewPDF.Enabled = false;
+            buttonViewPDF.Enabled = false;
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
