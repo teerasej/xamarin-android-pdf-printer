@@ -52,6 +52,12 @@ namespace PDFPrinter
                 StartActivity(intent);
             };
 
+            buttonPrintPDF.Click += (sender, e) =>
+            {
+                var printer = new PrintService();
+                printer.Connect();
+            };
+
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
