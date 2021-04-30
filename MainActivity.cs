@@ -40,7 +40,7 @@ namespace PDFPrinter
                 localPDFFile = await downloader.Download(targetFileUrl);
 
                 buttonViewPDF.Enabled = true;
-                buttonViewPDF.Enabled = true;
+                buttonPrintPDF.Enabled = true;
             };
 
         }
