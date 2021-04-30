@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Widget;
@@ -41,6 +42,14 @@ namespace PDFPrinter
 
                 buttonViewPDF.Enabled = true;
                 buttonPrintPDF.Enabled = true;
+            };
+
+            buttonViewPDF.Click += (sender, e) =>
+            {
+                var intent = new Intent(Application.Context, typeof(PDFViewerActivity));
+                intent.PutExtra("path", localPDFFile.AbsolutePath);
+
+                StartActivity(intent);
             };
 
         }
