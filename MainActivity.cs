@@ -52,10 +52,10 @@ namespace PDFPrinter
                 StartActivity(intent);
             };
 
-            buttonPrintPDF.Click += (sender, e) =>
+            buttonPrintPDF.Click += async (sender, e) =>
             {
                 var printer = new PrintService();
-                printer.Connect();
+                await printer.Print(null);
             };
 
         }
