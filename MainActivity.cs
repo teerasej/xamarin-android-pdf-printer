@@ -3,6 +3,7 @@ using System.IO;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Print;
 using Android.Runtime;
 using Android.Widget;
 using AndroidX.AppCompat.App;
@@ -57,9 +58,13 @@ namespace PDFPrinter
             {
                 await Share.RequestAsync(new ShareFileRequest
                 {
-                   Title = "PDF File",
-                   File = new ShareFile(localPDFFile.AbsolutePath, "application/pdf")
+                    Title = "PDF File",
+                    File = new ShareFile(localPDFFile.AbsolutePath, "application/pdf")
                 });
+
+                //var printManager = (PrintManager)GetSystemService(Context.PrintService);
+                //var printAdapter = new CustomPrintDocumentAdapter(localPDFFile.AbsolutePath);
+                //printManager.Print("My print", printAdapter, null);
             };
 
         }
